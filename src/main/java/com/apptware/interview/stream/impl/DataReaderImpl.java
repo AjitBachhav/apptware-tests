@@ -10,21 +10,13 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class DataReaderImpl implements DataReader {
+class DataReaderImpl implements DataReader {
 
-    @Override
-    public List<String> fetchLimitedData(int limit) {
-        // Implement your logic here to fetch limited data
-        return new ArrayList<>();
-    }
-}
-
-
-    @Autowired
+    @Autowired 
     private PaginationService paginationService;
 
     @Override
-    public Stream<String> fetchLimitadData(int limit) {
+    public Stream<String> fetchLimitedData(int limit) { // Corrected method name
         return fetchPaginatedDataAsStream().limit(limit);
     }
 
@@ -42,9 +34,6 @@ public class DataReaderImpl implements DataReader {
 
         // Placeholder for paginated data fetching logic
         // The candidate will add the actual implementation here
-
-        // Example: Fetch data using paginationService
-        // Stream<String> dataStream = paginationService.fetchData();
 
         Stream<String> dataStream = Stream.empty(); // Temporary, will be replaced by the actual data stream
         return dataStream.peek(item -> log.info("Fetched Item: {}", item));
