@@ -13,15 +13,19 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class ConsumptionOnDemandTest {
 
-  @Autowired private DataReader dataReader;
+    @Autowired
+    private DataReader dataReader;
 
-  @Test
-  void testConsumptionOnDemand() {
-    int limit = 1000;
-    List<String> limitedData = dataReader.fetchLimitadData(limit).toList();
-    Assertions.assertThat(limitedData).hasSize(limit);
+    @Test
+    void testConsumptionOnDemand() {
+        int limit = 1000;
+        
+        // Fetch limited data
+        List<String> limitedData = dataReader.fetchLimitedData(limit).toList();
+        Assertions.assertThat(limitedData).hasSize(limit);
 
-    List<String> fullData = dataReader.fetchFullData().toList();
-    Assertions.assertThat(fullData).hasSize(FULL_DATA_SIZE);
-  }
+        // Fetch full data
+        List<String> fullData = dataReader.fetchFullData().toList();
+        Assertions.assertThat(fullData).hasSize(FULL_DATA_SIZE);
+    }
 }
