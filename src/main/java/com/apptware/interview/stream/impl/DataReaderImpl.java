@@ -12,6 +12,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class DataReaderImpl implements DataReader {
 
+    @Override
+    public List<String> fetchLimitedData(int limit) {
+        // Implement your logic here to fetch limited data
+        return new ArrayList<>();
+    }
+}
+
+
     @Autowired
     private PaginationService paginationService;
 
